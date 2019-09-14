@@ -1,0 +1,67 @@
+
+
+<html>
+<head>
+<title>string manipulation</title>
+</head>
+<body>
+<center>
+<h1>String Manipulation</h1>
+<form method="post">
+<fieldset>
+<input type="text" name="t1"><br><br>
+<input type="text" name="t2"><br><br>
+<select name="ddl1">
+<option value="length">length</option>
+<option value="concatenation">concatenation</option>
+<option value="comparison">comparison</option>
+<option value="palindrome">palindrome</option>
+</select>
+
+<input type="submit" name="submit" value="submit">
+</fieldset>
+</form>
+</center>
+<?php
+if(isset($_POST['submit']))
+{
+$ddl2=$_POST['ddl1'];
+switch($ddl2)
+{
+case "length":$len=$_POST['t1'];
+		$len2=$_POST['t2'];
+		echo "length of string is:".strlen($len)."<br>";
+		echo "length of second string is:".strlen($len2)."<br>";
+		break;
+case "concatenation":$str1=$_POST['t1'];
+			$str2=$_POST['t2'];
+			$c=$str1.$str2;
+			echo "concatenation is:".$c;
+			break;
+case "comparison":$str1=$_POST['t1'];
+			$str2=$_POST['t2'];
+			if($str1==$str2)
+			{
+				echo "TRUE";
+			}
+			else
+			{ echo "FALSE";
+			}
+			break;
+case "palindrome":$var=$_POST['t1'];
+		$var1=strrev($var);
+		if($var1==$var)
+		{ echo "Palindrome is true..";
+		}
+		else{
+		echo "palindrome is false..";
+		}
+		break;
+default: 
+				echo "choose proper option";
+				break;
+}
+}
+?>
+</body>
+</html>
